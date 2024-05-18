@@ -10,6 +10,7 @@ import * as Clipboard from "expo-clipboard";
 import { Snackbar } from "react-native-paper";
 import { StyleSheet, Text, View } from 'react-native';
 import ThemeContext from "../../theme";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const GameFinder: React.FC = () => {
   const [gameCode, setGameCode] = useState("");
@@ -50,6 +51,7 @@ const GameFinder: React.FC = () => {
       const game = await createGame(auth.token);
       console.log("Created game:", game);
       Clipboard.setString(game.id);
+      await AsyncStorage.setItem('gameId', game.id);
       alert("Game code copied to clipboard");
       navigation.navigate(GameRouteNames.PREPARE_FORMATION as never, { game });
     } catch (error) {

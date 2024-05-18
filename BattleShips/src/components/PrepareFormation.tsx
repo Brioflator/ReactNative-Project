@@ -1,21 +1,71 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import {
   View,
   Text,
   TouchableOpacity,
   StyleSheet,
   Dimensions,
+  Alert,
 } from "react-native";
 import { Picker } from "@react-native-picker/picker";
 import { Button } from "react-native-elements";
 import { Card } from "react-native-paper";
 import { ScrollView } from "react-native";
 import ThemeContext from "../../theme";
+import { useAuth } from "../hooks/authContext";
+import { patchGameConfig } from "../api";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const screenWidth = Math.floor(Dimensions.get("window").width / 5) * 5 - 20;
 const cellSize = screenWidth / 10;
 
 const PrepareFormation: React.FC = () => {
+  const auth = useAuth();
+
+  const handleSaveFormation = async () => {
+    try {
+      const gameId = await AsyncStorage.getItem('gameId');
+
+    if (!gameId) {
+      throw new Error('No game ID found');
+    }
+
+    // Make the API call to save the formation
+    const response = await patchGameConfig(auth.token, gameId, ships);
+
+    console.log(response);
+    console.log(JSON.stringify(
+      {"ships":ships}
+  ));
+
+    if (response.code == 400) {
+      alert(response.message);
+    } else
+    if (response.code == 401) {
+      alert(response.message);
+    }
+    else
+    alert("Formation saved successfully");
+    } catch (error) {
+      // Display an error message
+      alert("Failed to save formation. Please try again.");
+    }
+  };
+
+  const { theme } = useContext(ThemeContext);
+
+  <Button
+    buttonStyle={{
+      marginBottom: 20,
+      marginLeft: 20,
+      padding: 10,
+      backgroundColor: theme,
+      borderRadius: 20,
+    }}
+    title="Save Formation"
+    onPress={handleSaveFormation}
+  />
+
   const [grid, setGrid] = useState<string[][]>([]);
   const [ships, setShips] = useState<
     Array<{ x: string; y: number; size: number; direction: string }>
@@ -28,7 +78,7 @@ const PrepareFormation: React.FC = () => {
     "HORIZONTAL"
   );
   const [length, setLength] = useState(2);
-  const { theme } = useContext(ThemeContext);
+  
 
   // Initialize the grid with empty cells
   useState(() => {
@@ -296,7 +346,7 @@ const PrepareFormation: React.FC = () => {
           }}
           title="Start Game"
           onPress={() => {
-            console.log(ships);
+            handleSaveFormation(  );
           }}
         />
       </View>

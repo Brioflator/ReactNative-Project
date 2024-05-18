@@ -107,3 +107,26 @@ export const getGameDetails = async (token: string, gameId: string) => {
 
     return data
 };
+
+interface Ship {
+    x: string;
+    y: number;
+    size: number;
+    direction: string;
+}
+
+export const patchGameConfig = async (token: string, gameId: string, ships: Ship[]) => {
+    const response = await fetch(`${baseUrl}/game/${gameId}`, {
+        method: 'PATCH',
+        headers: {
+            ...baseHeaders,
+            'Authorization': `Bearer ${token}`,
+        },
+        body: JSON.stringify(
+            {"ships": ships}
+        )
+    })
+
+    const result = await response.json();
+    return result;
+};
