@@ -17,6 +17,7 @@ Here's a list of the features that have been implemented:
 - [x] List all available games
 - [x] Create and Join Game
 - [x] Ship selection and placement UI
+- [x] Send configuration to API
 - [ ] Play game 
 - [ ] Replay feature
 
