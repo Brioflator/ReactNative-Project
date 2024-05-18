@@ -1,0 +1,53 @@
+{
+  "dependencies": {
+    "@callstack/react-theme-provider": "^3.0.9",
+    "@expo/metro-runtime": "~3.2.1",
+    "@react-native-async-storage/async-storage": "^1.23.1",
+    "@react-native-community/clipboard": "^1.5.1",
+    "@react-native-picker/picker": "^2.7.5",
+    "@react-native/metro-config": "^0.74.81",
+    "@react-navigation/native-stack": "^6.9.26",
+    "@react-three/drei": "^9.105.4",
+    "@react-three/fiber": "^8.16.2",
+    "axios": "^1.6.8",
+    "expo": "^51.0.8",
+    "expo-clipboard": "~6.0.3",
+    "expo-gl": "~14.0.2",
+    "expo-status-bar": "~1.12.1",
+    "hoist-non-react-statics": "^3.3.2",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-native": "0.74.1",
+    "react-native-dropdown-picker": "^5.4.6",
+    "react-native-elements": "^3.4.3",
+    "react-native-gesture-handler": "~2.16.1",
+    "react-native-paper": "^5.12.3",
+    "react-native-pie-chart": "^3.0.2",
+    "react-native-progress": "^5.0.1",
+    "react-native-ratings": "^8.1.0",
+    "react-native-reanimated": "~3.10.1",
+    "react-native-text-gradient": "^0.1.7",
+    "react-native-ui-lib": "^7.20.3",
+    "react-native-web": "~0.19.6",
+    "react-navigation": "^5.0.0",
+    "styled-components": "^6.1.8",
+    "three": "^0.163.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.19.3",
+    "@tsconfig/react-native": "^3.0.5",
+    "@types/jest": "^29.5.12",
+    "@types/react": "~18.2.79",
+    "@types/react-test-renderer": "^18.0.7",
+    "typescript": "~5.3.3"
+  },
+  "name": "battleships",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web"
+  }
+}
