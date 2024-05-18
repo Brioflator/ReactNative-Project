@@ -13,10 +13,10 @@ Here's a list of the features that have been implemented:
 
 - [x] Authentication: login and register
 - [x] Routing and Screen logic
-- [x] User detail page
-- [x] List all available games
-- [x] Create and Join Game
-- [x] Ship selection and placement UI
+- [x] User detail page with multiple color themeing and cool stats section
+- [x] List all available games with cool loading animation
+- [x] Create and Join Game with a playful cat
+- [x] Ship selection and placement facilitated by intuitive and robust UI design
 - [x] Send configuration to API
 - [ ] Play game 
 - [ ] Replay feature
